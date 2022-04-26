@@ -14,7 +14,7 @@ class Todo {
       const text = req.body.text;
       const newTask = new task({
         text,
-        isDone: false,
+        isOpen: false,
       });
       task.create(newTask);
     } catch (error) {
@@ -24,11 +24,11 @@ class Todo {
   async updateTask(req, res) {
     try {
       const id = req.body.id;
-      const isDone = req.body.isDone;
+      const isOpen = req.body.isOpen;
       const updatedTask = await task.findByIdAndUpdate(
         { id },
         {
-          isDone,
+          isOpen,
         }
       );
       res.status(200).json(updatedTask);
