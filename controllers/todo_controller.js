@@ -29,7 +29,7 @@ class Todo {
       const id = req.body.id;
       const isOpen = req.body.isOpen;
       const updatedTask = await task.findByIdAndUpdate(
-        { id },
+        { _id: id },
         {
           isOpen,
         }
@@ -43,7 +43,7 @@ class Todo {
   async deletTask(req, res, next) {
     try {
       const id = req.body.id;
-      task.findByIdAndDelete({ id });
+      task.findByIdAndDelete({ _id: id });
       res.status(200).json({ message: 'task deleted successfully' });
       next();
     } catch (error) {
