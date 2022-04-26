@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express()
+const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const router = require('./routes/router');
@@ -11,10 +11,11 @@ mongoose.connect(dbUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(router);
 
-app.use(router)
-
-const port = process.env.PORT || 3000
-app.listen(port , ()=>{
-    console.log(`app is listening on http://localhost:${port}`);
-})
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`app is listening on http://localhost:${port}`);
+});
