@@ -14,7 +14,7 @@ class Todo {
       const text = req.body.text;
       const newTask = new task({
         text,
-        isOpen: false,
+        isOpen: true,
       });
       task.create(newTask);
     } catch (error) {
