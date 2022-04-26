@@ -1,13 +1,13 @@
 
 # endpoints
 
-'/todo/'    [GET]
+'https://todo-rl22.onrender.com/todo'    [GET]
 
-'/todo/'    [POST]
+'https://todo-rl22.onrender.com/todo'    [POST]
 
-'/todo/:id' [PUT]
+'https://todo-rl22.onrender.com/todo:id' [PUT]
 
-'/todo/:id' [DELETE]
+'https://todo-rl22.onrender.com/todo:id' [DELETE]
 
 # datashape
 
@@ -22,18 +22,18 @@
 
 # get all tasks
 
-endpoint => '/todo/'
+endpoint => 'https://todo-rl22.onrender.com/todo/'
 method => [GET]
 
 # add a task
 
-endpoint => '/todo/'
+endpoint => 'https://todo-rl22.onrender.com/todo/'
 method => [POST]
 BODY => {text : "Task text example"}
 
 # update a task
 
-endpoint => '/todo/:id'
+endpoint => 'https://todo-rl22.onrender.com/todo/:id'
 id = _id
 method => [PUT]
 BODY => what u want to update as json
@@ -41,7 +41,7 @@ BODY => what u want to update as json
 
 # delete a task
 
-endpoint => '/todo/:id'
+endpoint => 'https://todo-rl22.onrender.com/todo/:id'
 id = _id
 method => [DELETE]
 
