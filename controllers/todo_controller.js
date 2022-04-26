@@ -1,16 +1,16 @@
 const task = require('../models/task');
 
 class Todo {
-  async getAllTasks(req, res, next) {
+  async getAllTasks(req, res) {
     try {
       const todos = await task.find();
       res.status(200).json(todos);
-      next();
+      
     } catch (error) {
       res.status(500).json({ message: 'something went wrong' });
     }
   }
-  async addTask(req, res, next) {
+  async addTask(req, res) {
     try {
       const text = req.body.text;
       const newTask = new task({
@@ -19,33 +19,28 @@ class Todo {
       });
       const taskCreated = task.create(newTask);
       res.status(200).json(taskCreated);
-      next();
+      
     } catch (error) {
       res.status(500).json({ message: 'something went wrong' });
     }
   }
-  async updateTask(req, res, next) {
+  async updateTask(req, res) {
     try {
-      const id = req.body.id;
-      const isOpen = req.body.isOpen;
-      const updatedTask = await task.findByIdAndUpdate(
-        { _id: id },
-        {
-          isOpen,
-        }
+       await task.findOneAndUpdate(
+        { _id: req.params.id },
+        req.body
       );
-      res.status(200).json(updatedTask);
-      next();
+      res.status(200).json({ message: 'task updated successfully' });
+      
     } catch (error) {
       res.status(500).json({ message: 'something went wrong' });
     }
   }
-  async deletTask(req, res, next) {
+  async deletTask(req, res) {
     try {
-      const id = req.body.id;
-      task.findByIdAndDelete({ _id: id });
+      await task.findOneAndDelete({ _id: req.params.id });
       res.status(200).json({ message: 'task deleted successfully' });
-      next();
+      
     } catch (error) {
       res.status(500).json({ message: 'something went wrong' });
     }
