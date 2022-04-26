@@ -2,8 +2,11 @@
 # endpoints
 
 '/todo/'    [GET]
+
 '/todo/'    [POST]
+
 '/todo/:id' [PUT]
+
 '/todo/:id' [DELETE]
 
 # datashape
