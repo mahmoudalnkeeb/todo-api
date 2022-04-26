@@ -5,9 +5,9 @@
 
 'https://todo-rl22.onrender.com/todo'    [POST]
 
-'https://todo-rl22.onrender.com/todo:id' [PUT]
+'https://todo-rl22.onrender.com/todo/:id' [PUT]
 
-'https://todo-rl22.onrender.com/todo:id' [DELETE]
+'https://todo-rl22.onrender.com/todo/:id' [DELETE]
 
 # datashape
 
