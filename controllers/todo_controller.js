@@ -36,10 +36,19 @@ class Todo {
       res.status(500).json({ message: 'something went wrong' });
     }
   }
-  async deletTask(req, res) {
+  async deleteTask(req, res) {
     try {
       await task.findOneAndDelete({ _id: req.params.id });
       res.status(200).json({ message: 'task deleted successfully' });
+      
+    } catch (error) {
+      res.status(500).json({ message: 'something went wrong' });
+    }
+  }
+  async deleteAllTasks(req, res) {
+    try {
+      await task.deleteMany();
+      res.status(200).json({ message: 'all tasks cleared' });
       
     } catch (error) {
       res.status(500).json({ message: 'something went wrong' });

@@ -9,6 +9,8 @@
 
 'https://todo-rl22.onrender.com/todo/:id' [DELETE]
 
+'https://todo-rl22.onrender.com/todo/:id' [DELETE]
+
 # datashape
 
     {
@@ -43,6 +45,11 @@ BODY => what u want to update as json
 
 endpoint => 'https://todo-rl22.onrender.com/todo/:id'
 id = _id
+method => [DELETE]
+
+# delete all tasks
+
+endpoint => 'https://todo-rl22.onrender.com/todo/delete-all'
 method => [DELETE]
 
 
