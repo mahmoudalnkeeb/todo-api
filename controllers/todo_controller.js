@@ -17,7 +17,7 @@ class Todo {
         text,
         isOpen: true,
       });
-      const taskCreated = task.create(newTask);
+      const taskCreated = await task.create(newTask);
       res.status(200).json(taskCreated);
       
     } catch (error) {
