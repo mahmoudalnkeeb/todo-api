@@ -17,8 +17,8 @@ class Todo {
         text,
         isOpen: true,
       });
-      const taskCreated = await task.create(newTask);
-      res.status(200).json(taskCreated);
+      await task.create(newTask);
+      res.status(200).json({message: 'task created successfully'});
       
     } catch (error) {
       res.status(500).json({ message: 'something went wrong' });
