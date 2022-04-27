@@ -6,7 +6,7 @@ const task = new mongoose.Schema(
       type: String,
       required: true,
     },
-    isOpen:{
+    isDone:{
         type:Boolean,
         required:true
     }

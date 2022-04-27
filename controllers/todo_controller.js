@@ -5,7 +5,6 @@ class Todo {
     try {
       const todos = await task.find();
       res.status(200).json(todos);
-      
     } catch (error) {
       res.status(500).json({ message: 'something went wrong' });
     }
@@ -15,23 +14,18 @@ class Todo {
       const text = req.body.text;
       const newTask = new task({
         text,
-        isOpen: true,
+        isDone: false,
       });
       await task.create(newTask);
-      res.status(200).json({message: 'task created successfully'});
-      
+      res.status(200).json({ message: 'task created successfully' });
     } catch (error) {
       res.status(500).json({ message: 'something went wrong' });
     }
   }
   async updateTask(req, res) {
     try {
-       await task.findOneAndUpdate(
-        { _id: req.params.id },
-        req.body
-      );
+      await task.findOneAndUpdate({ _id: req.params.id }, req.body);
       res.status(200).json({ message: 'task updated successfully' });
-      
     } catch (error) {
       res.status(500).json({ message: 'something went wrong' });
     }
@@ -40,7 +34,6 @@ class Todo {
     try {
       await task.findOneAndDelete({ _id: req.params.id });
       res.status(200).json({ message: 'task deleted successfully' });
-      
     } catch (error) {
       res.status(500).json({ message: 'something went wrong' });
     }
@@ -49,7 +42,6 @@ class Todo {
     try {
       await task.deleteMany();
       res.status(200).json({ message: 'all tasks cleared' });
-      
     } catch (error) {
       res.status(500).json({ message: 'something went wrong' });
     }
